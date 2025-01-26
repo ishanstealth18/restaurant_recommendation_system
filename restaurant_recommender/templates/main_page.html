@@ -21,6 +21,13 @@
             text-align: center;
         }
 
+        .restaurant_list {
+            border: 2px solid black;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
 
     </style>
 </head>
@@ -31,12 +38,18 @@
 
 
     <div class="body">
-        <form>
+        <form action="" method="POST">
+            {% csrf_token %}
             <label id="r_name" for="restaurant_name"><b>Restaurant Name:</b></label>
-            <input type="text" id="restaurant_name" placeholder="Enter Restaurant Name...">
+            <input type="text" id="restaurant_name" placeholder="Enter Restaurant Name..." name="r_name">
             <input type="submit" id="submit" value="Submit">
         </form>
     </div>
+
+    <div class="restaurant_list">
+        <iframe title="Recommended Restaurant" srcdoc="{{ top_restaurant_data }}" width="100%" height="100%" ></iframe>
+    </div>
+
 
 </body>
 </html>
